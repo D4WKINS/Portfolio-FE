@@ -22,16 +22,18 @@ import BurgerMenu from "./BurgerMenu.jsx"
 
 import { size } from "../../GlobalStyles.styles"
 
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
 //Styles
 const NavbarContainer = styled.div`
     display: block;
     opacity: ${(props) => (props.show ? "1" : "0")};
     visibility: ${(props) => (props.show ? "visible" : "hidden")};
-    background-color: ${(props) => (props.background ? "#000" : "transparent")};
+    background-color: ${(props) => (props.background ? "#818181" : "transparent")};
     transition-timing-function: ease-out;
     transition: 0.5s;
     position: fixed;
     top: 0;
+    z-index: 5;
 `
 export const NavWrapper = styled.div`
     display: flex;
@@ -160,27 +162,35 @@ const Navbar = () => {
                     </NavLink>
                 </SocialLinks_Container>
                 <Nav>
-                    <NavLink href='#'>
-                        <Home style={NavbarIcons} />
-                        Home
-                    </NavLink>{" "}
-                    <NavLink href='#'>
-                        {" "}
-                        <FilePerson style={NavbarIcons} />
-                        About
-                    </NavLink>
-                    <NavLink href='#'>
-                        <DesignServices style={NavbarIcons} />
-                        Projects
-                    </NavLink>
-                    <NavLink href='#'>
+                    <Link to='about' spy={true} smooth={true} offset={50} duration={500}>
+                        <NavLink href='#home'>
+                            <Home style={NavbarIcons} />
+                            Home
+                        </NavLink>
+                    </Link>{" "}
+                    <Link to='about' spy={true} smooth={true} offset={50} duration={500}>
+                        <NavLink href='#'>
+                            {" "}
+                            <FilePerson style={NavbarIcons} />
+                            About
+                        </NavLink>
+                    </Link>
+                    <Link to='projects' spy={true} smooth={true} offset={50} duration={500}>
+                        <NavLink href='#projects'>
+                            <DesignServices style={NavbarIcons} />
+                            Projects
+                        </NavLink>
+                    </Link>
+                    <NavLink href='#resume'>
                         <FileAlt style={NavbarIcons} />
                         Resume
                     </NavLink>
-                    <NavLink href='#'>
-                        <Email style={NavbarIcons} />
-                        Contact
-                    </NavLink>
+                    <Link to='contact' spy={true} smooth={true} offset={50} duration={500}>
+                        <NavLink href='#contact'>
+                            <Email style={NavbarIcons} />
+                            Contact
+                        </NavLink>
+                    </Link>
                 </Nav>
             </NavWrapper>
         </NavbarContainer>

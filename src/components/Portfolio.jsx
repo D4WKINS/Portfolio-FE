@@ -1,6 +1,8 @@
 import Hero from "./hero/Hero.jsx"
 
-import SectionTitle from "./styled/SectionTitle.styled.jsx"
+import SectionTitle from "./styled/SectionTitle.jsx"
+
+import Navbar from "./nav/Navbar.jsx"
 
 import About from "./about/About.jsx"
 
@@ -12,18 +14,17 @@ import Footer from "./footer/Footer.jsx"
 
 const Portfolio = () => {
     return (
-        <>
-            <div id='outer-container'>
-                <Hero />
-                <SectionTitle name='Greetings!' id='about' />
-                <About />
-                <SectionTitle name='Projects' />
-                <Projects />
-                <SectionTitle name='Hit Me Up' />
-                <Contact />
-                <Footer />
-            </div>
-        </>
+        <div>
+            <Navbar />
+            <Hero />
+            <SectionTitle className='wtf' title='Wazuuup!' id='about' name='about' />
+            <About />
+            <SectionTitle title='Projects' />
+            <Projects />
+            <SectionTitle title='Hit Me Up' />
+            <Contact />
+            <Footer />
+        </div>
     )
 }
 

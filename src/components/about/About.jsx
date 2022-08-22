@@ -42,7 +42,7 @@ const AboutGridCell = styled.div`
 
 const About = () => {
     return (
-        <AboutContainer>
+        <AboutContainer name='about'>
             <AboutGrid>
                 <AboutGridCell>
                     <Text />

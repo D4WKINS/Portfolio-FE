@@ -12,7 +12,7 @@ const Title = styled.h2`
     color: ${colors.color3};
     text-align: center;
     margin-bottom: 0;
-    font-size: clamp(2rem, 1rem + 8vw, 4rem);
+    font-size: clamp(2rem, 1rem + 8vw, 5rem);
 `
 const Underline = styled.div`
     background-color: ${colors.color1};
@@ -20,10 +20,10 @@ const Underline = styled.div`
     width: 50px;
     margin: 0 auto;
 `
-const SectionTitle = ({ name }) => {
+const SectionTitle = ({ title }) => {
     return (
         <TitleContainer>
-            <Title>{name}</Title>
+            <Title>{title}</Title>
             <Underline />
         </TitleContainer>
     )

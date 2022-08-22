@@ -5,8 +5,8 @@ const Button = ({ name, font, margin, color, border, backgroundColor, background
         border-radius: 10px;
         margin: ${margin};
         border: ${border};
-        height: 50px;
-        padding: 1rem;
+
+        padding: 1.5rem;
         color: ${color};
         background-color: ${backgroundColor};
         font-weight: 600;
@@ -44,7 +44,7 @@ const Button3D = ({
     `
     const Front = styled.span`
         display: block;
-        padding: 12px 42px;
+        padding: 20px 42px;
         border-radius: 12px;
         font-size: 1.25rem;
         font-weight: ${fontWeight};

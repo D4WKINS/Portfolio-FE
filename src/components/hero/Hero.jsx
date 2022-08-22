@@ -4,7 +4,7 @@ import Navbar from "../nav/Navbar.jsx"
 
 import bgImg from "../../assets/images/hero_bg.jpg"
 
-import video from "../../assets/videos/video_1.mp4"
+import HeroVideo from "./Video.jsx"
 
 import { colors } from "../../GlobalStyles.styles"
 
@@ -16,20 +16,18 @@ const HeroContainer = styled.section`
     position: relative;
     height: 100vh;
     width: 100%;
-    background: #1c1c1cc8 url(${bgImg}) no-repeat fixed center;
+    background-color: transparent;
+    /* background: #1c1c1cc8 url(${bgImg}) no-repeat fixed center;
     background-blend-mode: multiply;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 `
-const HeroVideo = styled.video`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-`
+
 const HeroTextContainer = styled.div`
     display: flex;
     margin: auto 0px 0px 0px;
     height: 100%;
     align-self: center;
+    z-index: 1;
 `
 const HeroContent = styled.div`
     display: flex;
@@ -62,6 +60,7 @@ const ScrollDownContainer = styled.div`
     display: flex;
     justify-content: center;
     height: 50%;
+    z-index: 3;
 `
 const ScrollDownInner = styled.div`
     display: flex;
@@ -85,7 +84,8 @@ const ScrollDownIcon = styled(ChevronDoubleDown)`
 const Hero = () => {
     return (
         <HeroContainer>
-            <Navbar />
+            <HeroVideo />
+
             <HeroContent>
                 <HeroTextContainer>
                     <HeroText>

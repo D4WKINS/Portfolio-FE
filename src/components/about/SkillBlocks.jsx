@@ -15,7 +15,15 @@ const SkillBlock = styled.li`
     /* padding: 1rem; */
     list-style: none;
     max-height: 50px;
+    border-radius: 5px;
     text-align: center;
+    cursor: pointer;
+
+    & :hover {
+        background-color: #62a4ca;
+        transition: 0.5s ease-out;
+        border-radius: 5px;
+    }
 
     & p {
         /* width: 100px; */

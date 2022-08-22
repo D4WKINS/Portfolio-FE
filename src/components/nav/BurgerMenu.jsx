@@ -18,7 +18,7 @@ import { FileAlt } from "@styled-icons/fa-solid/FileAlt"
 
 import { Email } from "@styled-icons/evaicons-solid/Email"
 
-import { size, NavbarIcons } from "../../GlobalStyles.styles"
+import { colors, size, NavbarIcons } from "../../GlobalStyles.styles"
 
 import "../../styles/hamBurger.css"
 

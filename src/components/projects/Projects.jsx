@@ -36,7 +36,6 @@ const ProjectsGrid = styled.div`
 const ProjectsCell = styled.div`
     display: flex;
     flex-direction: column;
-    /* border: solid 1px red; */
 `
 const ProjectsTitleContainer = styled.div`
     display: flex;
@@ -48,6 +47,9 @@ const ProjectsTitle = styled.h3`
 `
 const ProjectsImg = styled.img`
     height: 250px;
+    /* box-shadow: 0px 2px 3px #1b1b1b; */
+    border: solid 1px white;
+    border-radius: 5px;
 `
 
 const ProjectsDescriptionContainer = styled.div`
@@ -60,7 +62,7 @@ const ProjectsDescription = styled.p`
 
 const Projects = () => {
     return (
-        <ProjectsContainer>
+        <ProjectsContainer name='projects'>
             <ProjectsGrid>
                 <ProjectsCell>
                     <ProjectsTitleContainer>
