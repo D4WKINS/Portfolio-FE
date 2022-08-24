@@ -22,6 +22,8 @@ import { colors, size, NavbarIcons } from "../../GlobalStyles.styles"
 
 import "../../styles/hamBurger.css"
 
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+
 const BurgerMenuContainer = styled.div`
     display: block;
     @media only screen and (min-width: ${size.laptop}) {
@@ -38,25 +40,33 @@ const BurgerMenu = () => {
     return (
         <BurgerMenuContainer>
             <Menu right width={"75%"} pageWrapId={"page-wrap"}>
-                <BurgerLink href='/'>
+                <BurgerLink to='/' spy={true} smooth={true} offset={50} duration={500}>
                     <Home style={NavbarIcons} />
                     Home
                 </BurgerLink>
                 <BurgerLink>
-                    <FilePerson style={NavbarIcons} />
-                    About
+                    <Link to='about' spy={true} smooth={true} offset={50} duration={500}>
+                        <FilePerson style={NavbarIcons} />
+                        About
+                    </Link>
                 </BurgerLink>
                 <BurgerLink>
-                    <DesignServices style={NavbarIcons} />
-                    Projects
+                    <Link to='projects' spy={true} smooth={true} offset={50} duration={500}>
+                        <DesignServices style={NavbarIcons} />
+                        Projects
+                    </Link>
                 </BurgerLink>
                 <BurgerLink>
-                    <FileAlt style={NavbarIcons} />
-                    Resume
+                    <Link to='#' spy={true} smooth={true} offset={50} duration={500}>
+                        <FileAlt style={NavbarIcons} />
+                        Resume
+                    </Link>
                 </BurgerLink>
                 <BurgerLink>
-                    <Email style={NavbarIcons} />
-                    Contact
+                    <Link to='contact' spy={true} smooth={true} offset={50} duration={500}>
+                        <Email style={NavbarIcons} />
+                        Contact
+                    </Link>
                 </BurgerLink>
             </Menu>
         </BurgerMenuContainer>

@@ -15,6 +15,10 @@ const ContactContainer = styled.div`
     width: 100%;
     padding-top: 2rem;
     margin-bottom: 5rem;
+
+    @media only screen and (min-width: ${size.tablet}) {
+        padding: 2rem 1rem 0rem 1rem;
+    }
 `
 const FormContainer = styled.div`
     display: block;
@@ -51,7 +55,7 @@ const FormInput = styled.input`
     font-family: arial;
     font-size: 1.25rem;
     width: 100%;
-    height: 40px;
+    height: clamp(40px, 1px + 10vw, 50px);
     padding: 0.5rem;
     border-radius: 2.5px;
     border: none;
@@ -111,7 +115,7 @@ const Contact = () => {
     }
 
     return (
-        <ContactContainer name='contact'>
+        <ContactContainer>
             <FormContainer>
                 <FormWrapper>
                     <Form onSubmit={(e) => handleEmailSend(e)}>

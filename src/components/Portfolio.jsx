@@ -17,11 +17,17 @@ const Portfolio = () => {
         <div>
             <Navbar />
             <Hero />
-            <SectionTitle className='wtf' title='Wazuuup!' id='about' name='about' />
+            <div name='about'>
+                <SectionTitle title='Greetings!' id='about' />
+            </div>
             <About />
-            <SectionTitle title='Projects' />
+            <div name='projects'>
+                <SectionTitle title='Projects' />
+            </div>
             <Projects />
-            <SectionTitle title='Hit Me Up' />
+            <div name='contact'>
+                <SectionTitle title='Hit Me Up' />
+            </div>
             <Contact />
             <Footer />
         </div>

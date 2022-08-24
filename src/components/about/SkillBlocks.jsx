@@ -1,13 +1,26 @@
 import styled from "styled-components"
+
 import { colors } from "../../GlobalStyles.styles.js"
 
-const SkillsContainer = styled.ul`
+import { Web } from "@styled-icons/material-twotone/Web"
+
+import { WindowDevTools } from "@styled-icons/fluentui-system-filled/WindowDevTools"
+
+import { Server } from "@styled-icons/fa-solid/Server"
+
+const SkillsContainer = styled.div`
+    background-color: #488cb4;
+    height: 100%;
+    border-radius: 10px;
+`
+
+const SkillBlocksContainer = styled.ul`
     display: flex;
     /* justify-content: space-evenly; */
     flex-wrap: wrap;
     gap: 0.5rem;
     margin: 0;
-    padding: 0;
+    padding: 1.5rem 1rem;
 `
 const SkillBlock = styled.li`
     display: inline-block;
@@ -37,22 +50,59 @@ const SkillBlock = styled.li`
 
 const SkillsNameContainer = styled.div`
     display: flex;
+    justify-content: center;
+    background-color: ${colors.color1};
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 `
 const SkillsName = styled.h3`
     font-size: 1.5rem;
     font-family: "arial";
     color: ${colors.color3};
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 `
+const sharedStyles = {
+    nameIcons: {
+        height: "40px",
+        width: "40px",
+        marginLeft: ".5rem"
+    }
+}
+const StyledWebIcon = styled(Web)`
+    color: white;
+    ${sharedStyles.nameIcons}
+`
+const StyledToolsIcon = styled(WindowDevTools)`
+    color: white;
+    ${sharedStyles.nameIcons}
+`
+
+const StyledServerIcon = styled(Server)`
+    color: white;
+    ${sharedStyles.nameIcons}
+`
+
+const generateIcon = (skillsName) => {
+    return skillsName === "Frontend" ? (
+        <StyledWebIcon />
+    ) : skillsName === "Tools" ? (
+        <StyledToolsIcon />
+    ) : skillsName === "Backend" ? (
+        <StyledServerIcon />
+    ) : null
+}
 
 const SkillBlocks = ({ skills, skillsName }) => {
     return (
-        <div>
+        <SkillsContainer>
             <SkillsNameContainer>
-                <SkillsName>{skillsName}</SkillsName>
+                <SkillsName>
+                    {skillsName}
+                    {generateIcon(skillsName)}
+                </SkillsName>
             </SkillsNameContainer>
-            <SkillsContainer>
+            <SkillBlocksContainer>
                 {skills.map((skill) => {
                     return (
                         <SkillBlock>
@@ -60,8 +110,8 @@ const SkillBlocks = ({ skills, skillsName }) => {
                         </SkillBlock>
                     )
                 })}
-            </SkillsContainer>
-        </div>
+            </SkillBlocksContainer>
+        </SkillsContainer>
     )
 }
 

@@ -28,7 +28,7 @@ const NavbarContainer = styled.div`
     display: block;
     opacity: ${(props) => (props.show ? "1" : "0")};
     visibility: ${(props) => (props.show ? "visible" : "hidden")};
-    background-color: ${(props) => (props.background ? "#818181" : "transparent")};
+    background-color: ${(props) => (props.background ? "#000" : "transparent")};
     transition-timing-function: ease-out;
     transition: 0.5s;
     position: fixed;
