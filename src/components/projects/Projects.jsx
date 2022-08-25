@@ -48,10 +48,6 @@ const ProjectsTitle = styled.h2`
     color: ${colors.color1};
 `
 
-const ProjectsSubTitleContainer = styled.div`
-    display: flex;
-`
-
 const ProjectsSubTitle = styled.h3`
     font-family: "arial";
     color: grey;

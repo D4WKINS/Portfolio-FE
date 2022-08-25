@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-import { colors } from "../../GlobalStyles.styles.js"
-
 import { size } from "../../GlobalStyles.styles.js"
 
 import Text from "./Text.jsx"
@@ -56,14 +54,6 @@ const AboutGrid = styled.div`
             "skills1 skills1 skills2 skills2 skills3 skills3";
         grid-template-columns: repeat(6, 1fr);
     }
-`
-const AboutGridCell = styled.div`
-    /* display: flex;
-    height: 100%; */
-
-    @media only screen and (min-width: ${size.laptop}) {
-        padding-bottom: 0;
-    } ;
 `
 
 const TextCell = styled.div`

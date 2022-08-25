@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 import { useState, useEffect } from "react"
 
@@ -22,7 +22,7 @@ import BurgerMenu from "./BurgerMenu.jsx"
 
 import { size } from "../../GlobalStyles.styles"
 
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+import { Link } from "react-scroll"
 //Styles
 const NavbarContainer = styled.div`
     display: block;
@@ -61,22 +61,21 @@ const Nav = styled.nav`
     @media only screen and (min-width: ${size.laptop}) {
         display: flex;
     }
-`
-const NavLi = styled.li`
+
     display: inline;
     margin-right: 2rem;
     font-family: arial;
     font-size: 1.5rem;
     color: ${colors.color3};
 `
-const Logo = styled.div`
-    display: inline-block;
-    padding: 1rem;
-    background-color: ${colors.color3};
-    font-family: arial;
-    font-weight: 600;
-    letter-spacing: 0.5rem;
-`
+// const Logo = styled.div`
+//     display: inline-block;
+//     padding: 1rem;
+//     background-color: ${colors.color3};
+//     font-family: arial;
+//     font-weight: 600;
+//     letter-spacing: 0.5rem;
+// `
 export const GithubWhite = styled(Github)`
     color: ${colors.color3};
     height: 50px;
@@ -100,8 +99,7 @@ export const NavLink = styled.a`
         margin-right: 2rem;
     }
 `
-const SocialLinks_Container = styled.div``
-const SocialLink = styled.a
+const SocialLinksContainer = styled.div``
 
 const Navbar = () => {
     const [show, setShow] = useState(true)
@@ -129,11 +127,11 @@ const Navbar = () => {
 
             setScrollDirection("Scrolling up")
             setShow(true)
-            console.log("Scrolling up")
+            console.log(scrollDirection)
         } else if (y < window.scrollY) {
             setShow(false)
             setScrollDirection("Scrolling Down")
-            console.log("scrolling down")
+            console.log(scrollDirection)
         }
         setY(window.scrollY)
     }
@@ -150,7 +148,7 @@ const Navbar = () => {
             {" "}
             <BurgerMenu />
             <NavWrapper>
-                <SocialLinks_Container>
+                <SocialLinksContainer>
                     <NavLink></NavLink>
                     <NavLink href='https://www.linkedin.com/in/cadawkins/'>
                         {" "}
@@ -160,7 +158,7 @@ const Navbar = () => {
                     <NavLink href='https://github.com/D4WKINS'>
                         <GithubWhite />
                     </NavLink>
-                </SocialLinks_Container>
+                </SocialLinksContainer>
                 <Nav>
                     <Link to='about' spy={true} smooth={true} offset={50} duration={500}>
                         <NavLink href='#home'>

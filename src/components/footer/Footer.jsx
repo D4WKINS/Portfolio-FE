@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-import { ReactLogo } from "@styled-icons/boxicons-logos/ReactLogo"
-
 import { colors } from "../../GlobalStyles.styles.js"
 
 import Video from "../hero/Video.jsx"
@@ -14,10 +12,7 @@ const FooterContainer = styled.footer`
     background-color: black;
     height: 100px;
 `
-const StyledReactIcon = styled(ReactLogo)`
-    color: ${colors.color1};
-    height: 40px;
-`
+
 const FooterText = styled.p`
     font-family: arial;
     font-weight: 600;

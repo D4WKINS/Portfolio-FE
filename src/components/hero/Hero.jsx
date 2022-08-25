@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-import Navbar from "../nav/Navbar.jsx"
-
 import bgImg from "../../assets/images/hero_bg.jpg"
 
 import HeroVideo from "./Video.jsx"
@@ -10,7 +8,7 @@ import { colors } from "../../GlobalStyles.styles"
 
 import { ChevronDoubleDown } from "@styled-icons/heroicons-solid/ChevronDoubleDown"
 
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+import { animateScroll as scroll } from "react-scroll"
 
 const HeroContainer = styled.section`
     position: relative;
