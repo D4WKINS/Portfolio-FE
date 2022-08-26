@@ -8,6 +8,8 @@ import { WindowDevTools } from "@styled-icons/fluentui-system-filled/WindowDevTo
 
 import { Server } from "@styled-icons/fa-solid/Server"
 
+import uniqid from "uniqid"
+
 const SkillsContainer = styled.div`
     background-color: #488cb4;
     height: 100%;
@@ -105,7 +107,7 @@ const SkillBlocks = ({ skills, skillsName }) => {
             <SkillBlocksContainer>
                 {skills.map((skill) => {
                     return (
-                        <SkillBlock>
+                        <SkillBlock key={uniqid()}>
                             <p>{skill}</p>
                         </SkillBlock>
                     )

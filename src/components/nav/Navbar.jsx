@@ -37,7 +37,6 @@ const NavbarContainer = styled.div`
 `
 export const NavWrapper = styled.div`
     display: flex;
-
     align-items: center;
     width: 100vw;
     padding: 0;
@@ -53,13 +52,12 @@ export const NavWrapper = styled.div`
     }
 `
 const Nav = styled.nav`
-    display: none;
-
+    display: none !important;
     border-radius: 20px;
     transition-timing-function: ease-in;
     transition: 0.5s;
     @media only screen and (min-width: ${size.laptop}) {
-        display: flex;
+        display: flex !important;
     }
 
     display: inline;
@@ -90,6 +88,7 @@ export const ResumeIcon = styled(FileAlt)`
 export const NavLink = styled.a`
     font-family: "arial";
     font-weight: 600;
+    font-size: 1rem;
     letter-spacing: 1px;
     color: ${colors.color3};
     margin-left: 0;
@@ -179,10 +178,12 @@ const Navbar = () => {
                             Projects
                         </NavLink>
                     </Link>
-                    <NavLink href='#resume'>
-                        <FileAlt style={NavbarIcons} />
-                        Resume
-                    </NavLink>
+                    <Link>
+                        <NavLink href='#resume'>
+                            <FileAlt style={NavbarIcons} />
+                            Resume
+                        </NavLink>
+                    </Link>
                     <Link to='contact' spy={true} smooth={true} offset={50} duration={500}>
                         <NavLink href='#contact'>
                             <Email style={NavbarIcons} />

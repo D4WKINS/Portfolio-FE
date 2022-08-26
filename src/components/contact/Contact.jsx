@@ -9,8 +9,10 @@ import { colors, size } from "../../GlobalStyles.styles.js"
 import axios from "axios"
 
 import FormSentMsg from "./FormSentMsg.jsx"
+import { FormatListBulleted } from "styled-icons/material-rounded"
 
 const BE_URL = process.env.REACT_APP_BE_URL
+
 const ContactContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -24,6 +26,7 @@ const ContactContainer = styled.div`
 `
 const FormContainer = styled.div`
     display: block;
+    position: relative;
     justify-content: center;
     width: 100%;
     margin: auto;
@@ -96,19 +99,21 @@ const Contact = () => {
     const [formName, setFormName] = useState("")
     const [formEmail, setFormEmail] = useState("")
     const [formMessage, setFormMessage] = useState("")
-    const [emailSent, setEmailSent] = useState(true)
+    const [emailSent, setEmailSent] = useState(false)
 
     const resetForm = () => {
         setFormName("")
         setFormEmail("")
         setFormMessage("")
     }
+
     const triggerMsgSentAlert = () => {
         setEmailSent(true)
         setTimeout(() => {
             setEmailSent(false)
         }, 3000)
     }
+
     const handleEmailSend = (e) => {
         console.log("Sending email...")
         e.preventDefault()
@@ -171,8 +176,8 @@ const Contact = () => {
                             margin='0px 0px 0px auto'
                         />
                     </Form>
-                    <FormSentMsg show={emailSent} />
                 </FormWrapper>
+                <FormSentMsg show={emailSent} />
             </FormContainer>
         </ContactContainer>
     )

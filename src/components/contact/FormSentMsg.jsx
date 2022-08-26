@@ -1,37 +1,46 @@
 import styled, { keyframes } from "styled-components"
 
-import { useState } from "react"
+import { colors } from "../../GlobalStyles.styles.js"
 
-const fadeInAnimation = keyframes`
-    
-from {opacity:0}
-    to{opacity:1}
+const fadeIn = keyframes`
+from {
+        opacity:0;
+}
+    to{
+        opacity:1;
+    }
 `
-const fadeOutAnimation = keyframes`
-    
-    from{opacity:1}
-    to{opacity:0}
+
+const fadeOut = keyframes`
+from {
+    opacity:1;
+}
+    to{
+    opacity:0;
+    }
 `
+
 const FormSentMsgContainer = styled.div`
-    display: ${(props) => (props.show ? "flex" : "none")};
-    visibility: ${(props) => (props.show ? "visible" : "hidden")};
+    display: flex;
+    /* visibility: ${(props) => (props.show ? "visible" : "hidden")}; */
+    opacity: ${(props) => (props.show ? "1" : "0")};
     position: absolute;
     justify-content: center;
     align-content: center;
-    background-color: #53cc71;
+    background-color: #ffffff;
     margin: auto;
-    height: 50px;
+    height: 60px;
     width: 150px;
     right: 0;
-    bottom: 20%;
+    bottom: -10px;
     left: 0;
-    border: solid 2px #53cc71;
-    z-index: 3;
-    animation: ${(props) => (props.show ? fadeInAnimation : fadeOutAnimation)} 1s linear;
+    border: solid 5px ${colors.color1};
+    animation: ${(props) => (props.show ? fadeIn : fadeOut)} 1s linear;
+    transition-timing-function: 1s ease-out linear;
 `
 
 const FormSentMsgText = styled.p`
-    color: #ffffff;
+    color: #000000;
     height: 20px;
     font-size: 1.1rem;
     font-family: Arial;
@@ -42,7 +51,7 @@ const FormSentMsgText = styled.p`
 
 const FormSentMsg = ({ show }) => {
     return (
-        <FormSentMsgContainer show={show ? true : false}>
+        <FormSentMsgContainer show={show}>
             <FormSentMsgText>Message Sent!</FormSentMsgText>
         </FormSentMsgContainer>
     )

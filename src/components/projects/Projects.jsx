@@ -27,7 +27,7 @@ const ProjectsGrid = styled.div`
     grid-auto-rows: minmax(250px, auto);
 
     @media only screen and (min-width: ${size.tablet}) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media only screen and (min-width: ${size.laptop}) {
@@ -45,7 +45,7 @@ const ProjectsTitleContainer = styled.div`
 const ProjectsTitle = styled.h2`
     font-family: "Arial";
     font-size: clamp(1rem, 1rem + 10vw, 2rem);
-    color: ${colors.color1};
+    color: ${colors.color3};
 `
 
 const ProjectsSubTitle = styled.h3`
