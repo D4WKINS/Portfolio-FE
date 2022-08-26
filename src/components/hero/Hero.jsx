@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-import Navbar from "../nav/Navbar.jsx"
-
 import bgImg from "../../assets/images/hero_bg.jpg"
 
 import HeroVideo from "./Video.jsx"
@@ -10,7 +8,7 @@ import { colors } from "../../GlobalStyles.styles"
 
 import { ChevronDoubleDown } from "@styled-icons/heroicons-solid/ChevronDoubleDown"
 
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+import { Link } from "react-scroll"
 
 const HeroContainer = styled.section`
     position: relative;
@@ -94,11 +92,13 @@ const Hero = () => {
                     </HeroText>
                 </HeroTextContainer>
                 <ScrollDownContainer>
-                    <ScrollDownInner>
-                        <ScrollDownBtn onClick={() => scroll.scrollTo(950)} spy={true} smooth={true} duration={500}>
-                            <ScrollDownIcon />
-                        </ScrollDownBtn>
-                    </ScrollDownInner>
+                    <Link to='about' smooth={true} duration={1000}>
+                        <ScrollDownInner>
+                            <ScrollDownBtn>
+                                <ScrollDownIcon />
+                            </ScrollDownBtn>
+                        </ScrollDownInner>
+                    </Link>
                 </ScrollDownContainer>
             </HeroContent>
         </HeroContainer>

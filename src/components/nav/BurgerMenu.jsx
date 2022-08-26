@@ -2,12 +2,6 @@ import styled from "styled-components"
 
 import { slide as Menu } from "react-burger-menu"
 
-import { useEffect, useState } from "react"
-
-import { Linkedin } from "@styled-icons/bootstrap/Linkedin"
-
-import { Github } from "@styled-icons/bootstrap/Github"
-
 import { Home } from "@styled-icons/boxicons-solid/Home"
 
 import { FilePerson } from "@styled-icons/bootstrap/FilePerson"
@@ -18,11 +12,11 @@ import { FileAlt } from "@styled-icons/fa-solid/FileAlt"
 
 import { Email } from "@styled-icons/evaicons-solid/Email"
 
-import { colors, size, NavbarIcons } from "../../GlobalStyles.styles"
+import { size, NavbarIcons } from "../../GlobalStyles.styles"
 
 import "../../styles/hamBurger.css"
 
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+import { Link } from "react-scroll"
 
 const BurgerMenuContainer = styled.div`
     display: block;

@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-import { colors } from "../../GlobalStyles.styles.js"
-
 const AboutTextContainer = styled.div`
     display: flex;
     align-content: center;

@@ -8,7 +8,11 @@ import { colors, size } from "../../GlobalStyles.styles.js"
 
 import axios from "axios"
 
+import FormSentMsg from "./FormSentMsg.jsx"
+import { FormatListBulleted } from "styled-icons/material-rounded"
+
 const BE_URL = process.env.REACT_APP_BE_URL
+
 const ContactContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -22,6 +26,7 @@ const ContactContainer = styled.div`
 `
 const FormContainer = styled.div`
     display: block;
+    position: relative;
     justify-content: center;
     width: 100%;
     margin: auto;
@@ -29,6 +34,7 @@ const FormContainer = styled.div`
 `
 const FormWrapper = styled.div`
     display: flex;
+    position: relative;
     flex-direction: column;
     margin: auto;
     width: 100%;
@@ -50,7 +56,6 @@ const Form = styled.form`
 const FormGroup = styled.div`
     /* margin-bottom: 0.5rem; */
 `
-const FormLabel = styled.label``
 const FormInput = styled.input`
     font-family: arial;
     font-size: 1.25rem;
@@ -89,7 +94,6 @@ const FormMessage = styled.textarea`
         color: grey;
     }
 `
-const FormSentConfirmation = styled.div``
 
 const Contact = () => {
     const [formName, setFormName] = useState("")
@@ -97,16 +101,33 @@ const Contact = () => {
     const [formMessage, setFormMessage] = useState("")
     const [emailSent, setEmailSent] = useState(false)
 
+    const resetForm = () => {
+        setFormName("")
+        setFormEmail("")
+        setFormMessage("")
+    }
+
+    const triggerMsgSentAlert = () => {
+        setEmailSent(true)
+        setTimeout(() => {
+            setEmailSent(false)
+        }, 3000)
+    }
+
     const handleEmailSend = (e) => {
         console.log("Sending email...")
         e.preventDefault()
+        resetForm()
         if (formName === "" || formEmail === "" || formMessage === "") {
             console.log("Fields cannot be empty, please try again")
         } else {
             axios
                 .post(`${BE_URL}/email`, { name: formName, email: formEmail, message: formMessage })
                 .then((response) => {
-                    console.log(response.data)
+                    if (response) {
+                        console.log("Trigger alert message")
+                        triggerMsgSentAlert()
+                    }
                 })
                 .catch((err) => {
                     throw new Error(err)
@@ -120,12 +141,18 @@ const Contact = () => {
                 <FormWrapper>
                     <Form onSubmit={(e) => handleEmailSend(e)}>
                         <FormGroup>
-                            <FormInput placeholder='Name...' onChange={(e) => setFormName(e.target.value)} required />
+                            <FormInput
+                                placeholder='Name...'
+                                value={formName}
+                                onChange={(e) => setFormName(e.target.value)}
+                                required
+                            />
                         </FormGroup>
                         <FormGroup>
                             <FormInput
                                 type='email'
                                 placeholder='Email...'
+                                value={formEmail}
                                 onChange={(e) => setFormEmail(e.target.value)}
                                 required
                             />
@@ -133,6 +160,7 @@ const Contact = () => {
 
                         <FormMessage
                             placeholder='Message...'
+                            value={formMessage}
                             onChange={(e) => setFormMessage(e.target.value)}
                             required
                         />
@@ -149,6 +177,7 @@ const Contact = () => {
                         />
                     </Form>
                 </FormWrapper>
+                <FormSentMsg show={emailSent} />
             </FormContainer>
         </ContactContainer>
     )

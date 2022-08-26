@@ -1,23 +1,33 @@
 import styled from "styled-components"
+const StyledButton = styled.button`
+    border-radius: 10px;
+    margin: ${(props) => props.margin};
+    border: ${(props) => props.border};
 
+    padding: 1.5rem;
+    color: ${(props) => props.color};
+    background-color: ${(props) => props.backgroundColor};
+    font-weight: 600;
+    font-family: ${(props) => props.font};
+
+    & :hover {
+        background-color: ${(props) => props.backgroundColorHover};
+    }
+`
 const Button = ({ name, font, margin, color, border, backgroundColor, backgroundColorHover }) => {
-    const StyledButton = styled.button`
-        border-radius: 10px;
-        margin: ${margin};
-        border: ${border};
-
-        padding: 1.5rem;
-        color: ${color};
-        background-color: ${backgroundColor};
-        font-weight: 600;
-        font-family: ${font};
-
-        & :hover {
-            background-color: ${backgroundColorHover};
-        }
-    `
-
-    return <StyledButton>{name}</StyledButton>
+    return (
+        <StyledButton
+            name={name}
+            font={font}
+            margin={margin}
+            color={color}
+            border={border}
+            backgroundColor={backgroundColor}
+            backgroundColorHover={backgroundColorHover}
+        >
+            {name}
+        </StyledButton>
+    )
 }
 
 const Button3D = ({

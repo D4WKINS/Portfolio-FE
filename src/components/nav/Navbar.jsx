@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 import { useState, useEffect } from "react"
 
@@ -22,7 +22,7 @@ import BurgerMenu from "./BurgerMenu.jsx"
 
 import { size } from "../../GlobalStyles.styles"
 
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll"
+import { Link } from "react-scroll"
 //Styles
 const NavbarContainer = styled.div`
     display: block;
@@ -37,7 +37,6 @@ const NavbarContainer = styled.div`
 `
 export const NavWrapper = styled.div`
     display: flex;
-
     align-items: center;
     width: 100vw;
     padding: 0;
@@ -53,30 +52,28 @@ export const NavWrapper = styled.div`
     }
 `
 const Nav = styled.nav`
-    display: none;
-
+    display: none !important;
     border-radius: 20px;
     transition-timing-function: ease-in;
     transition: 0.5s;
     @media only screen and (min-width: ${size.laptop}) {
-        display: flex;
+        display: flex !important;
     }
-`
-const NavLi = styled.li`
+
     display: inline;
     margin-right: 2rem;
     font-family: arial;
     font-size: 1.5rem;
     color: ${colors.color3};
 `
-const Logo = styled.div`
-    display: inline-block;
-    padding: 1rem;
-    background-color: ${colors.color3};
-    font-family: arial;
-    font-weight: 600;
-    letter-spacing: 0.5rem;
-`
+// const Logo = styled.div`
+//     display: inline-block;
+//     padding: 1rem;
+//     background-color: ${colors.color3};
+//     font-family: arial;
+//     font-weight: 600;
+//     letter-spacing: 0.5rem;
+// `
 export const GithubWhite = styled(Github)`
     color: ${colors.color3};
     height: 50px;
@@ -91,6 +88,7 @@ export const ResumeIcon = styled(FileAlt)`
 export const NavLink = styled.a`
     font-family: "arial";
     font-weight: 600;
+    font-size: 1rem;
     letter-spacing: 1px;
     color: ${colors.color3};
     margin-left: 0;
@@ -100,8 +98,7 @@ export const NavLink = styled.a`
         margin-right: 2rem;
     }
 `
-const SocialLinks_Container = styled.div``
-const SocialLink = styled.a
+const SocialLinksContainer = styled.div``
 
 const Navbar = () => {
     const [show, setShow] = useState(true)
@@ -129,11 +126,11 @@ const Navbar = () => {
 
             setScrollDirection("Scrolling up")
             setShow(true)
-            console.log("Scrolling up")
+            console.log(scrollDirection)
         } else if (y < window.scrollY) {
             setShow(false)
             setScrollDirection("Scrolling Down")
-            console.log("scrolling down")
+            console.log(scrollDirection)
         }
         setY(window.scrollY)
     }
@@ -150,7 +147,7 @@ const Navbar = () => {
             {" "}
             <BurgerMenu />
             <NavWrapper>
-                <SocialLinks_Container>
+                <SocialLinksContainer>
                     <NavLink></NavLink>
                     <NavLink href='https://www.linkedin.com/in/cadawkins/'>
                         {" "}
@@ -160,7 +157,7 @@ const Navbar = () => {
                     <NavLink href='https://github.com/D4WKINS'>
                         <GithubWhite />
                     </NavLink>
-                </SocialLinks_Container>
+                </SocialLinksContainer>
                 <Nav>
                     <Link to='about' spy={true} smooth={true} offset={50} duration={500}>
                         <NavLink href='#home'>
@@ -181,10 +178,12 @@ const Navbar = () => {
                             Projects
                         </NavLink>
                     </Link>
-                    <NavLink href='#resume'>
-                        <FileAlt style={NavbarIcons} />
-                        Resume
-                    </NavLink>
+                    <Link>
+                        <NavLink href='#resume'>
+                            <FileAlt style={NavbarIcons} />
+                            Resume
+                        </NavLink>
+                    </Link>
                     <Link to='contact' spy={true} smooth={true} offset={50} duration={500}>
                         <NavLink href='#contact'>
                             <Email style={NavbarIcons} />
